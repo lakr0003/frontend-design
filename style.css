@@ -1,12 +1,90 @@
 :root {
-    --color-heading: #0B0D19;
-    --color-body: #677386;
-    --color-bg-button: #3D7BFA;
-    --color-text-button: #FFF;
+  --color-heading: #0b0d19;
+  --color-body: #677386;
+  --color-bg-button: #3d7bfa;
+  --color-text-button: #fff;
 
-    /* Når du synes, du er færdig, så ændr værdien herunder til '1' for at se dit resultat i browseren */
-    --hide-overlay: 0;
+  /* Når du synes, du er færdig, så ændr værdien herunder til '1' for at se dit resultat i browseren */
+  --hide-overlay: 1;
 }
 
-
 /* Begynd her... */
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.text-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  h1 {
+    color: var(--color-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-weight: 900;
+  }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-color: var(--color-bg-button);
+    color: var(--color-text-button);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3 1fr);
+  grid-template-rows: 4fr;
+  gap: 10px;
+  padding: 20px;
+
+  .one {
+    grid-column: 2/3;
+    grid-row: span 2;
+  }
+  .two {
+    grid-column: 1/2;
+    grid-row: span 2;
+  }
+  .three {
+    grid-column: 2/3;
+    grid-row: span 2;
+  }
+  .four {
+    grid-column: 3/4;
+    grid-row: span 1;
+  }
+  .five {
+    grid-column: 1/2;
+    grid-row: span 1;
+  }
+  .six {
+    grid-column: 3/4;
+    grid-row: span 1;
+  }
+  .seven {
+    grid-column: 2/3;
+    grid-row: span 1;
+  }
+}
