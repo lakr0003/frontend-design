@@ -1,4 +1,25 @@
 article {
-    max-width: 65ch;
-    margin-inline: auto;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: [a] 1fr [b] 1fr [c] 1fr [d];
+  gap: 1.5rem;
+}
+
+h2,
+h3,
+p {
+  grid-column: b / c;
+}
+
+img {
+  grid-column: a / d;
+  max-width: 100vw;
+  height: auto;
+  object-fit: cover;
+}
+
+blockquote {
+  grid-column: a / c;
+  margin-left: 3rem;
 }
