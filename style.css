@@ -1,75 +1,124 @@
 .bento {
+  display: grid;
+  gap: var(--spacing-base);
+
+  grid-template-areas:
+    "title title image-1"
+    "image-2 list image-1"
+    "image-2 list tag";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  .title {
+    --bg: var(--color-brand-yellow);
+    grid-area: title;
+  }
+
+  .list {
+    --bg: var(--color-brand-coffee);
+    grid-area: list;
+  }
+
+  .image-1 {
+    color: var(--color-text-accent);
+    grid-area: image-1;
     display: grid;
-    gap: var(--spacing-base);
 
-    .title {
-        --bg: var(--color-brand-yellow);
+    /* fra timen*/
+    grid: "stack";
+
+    img {
+      object-fit: cover;
+      /*fra timen*/
+      align-self: stretch;
+      block-size: 100%;
     }
 
-    .list {
-        --bg: var(--color-brand-coffee);
+    > * {
+      grid-area: 1/1;
+      padding: 1rem;
+
+      /*fra timen*/
+      grid-area: stack;
     }
 
-    .image-1 {
-        color: var(--color-text-accent);
+    p:first-of-type {
+      place-self: center;
+      align-self: start;
+      margin: 1rem;
     }
 
-    .tag {
-        --bg: var(--color-brand-olive);
-        font-size: 2rem;
-        line-height: 1.2;
+    p:last-of-type {
+      place-self: center;
+      align-self: self-end;
+      margin: 1rem;
     }
+  }
+
+  .tag {
+    --bg: var(--color-brand-olive);
+    font-size: 2rem;
+    line-height: 1.2;
+    grid-area: tag;
+  }
+  .image-2 {
+    grid-area: image-2;
+  }
 }
 
 .card {
-    border-radius: var(--border-radius);
-    background: var(--bg);
-    overflow: clip;
+  border-radius: var(--border-radius);
+  background: var(--bg);
+  overflow: clip;
 
-    &:not(:has(img)) {
-        padding: var(--spacing-base);
-    }
+  &:not(:has(img)) {
+    padding: var(--spacing-base);
+  }
+}
+
+.bento img {
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 h2 {
-    font-size: 4rem;
-    line-height: 1.1;
-    color: var(--color-text-dark);
-    margin-bottom: var(--spacing-base);
+  font-size: 4rem;
+  line-height: 1.1;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-base);
 }
 
 .website {
-    font-size: 1.2rem;
-    margin-top: auto;
+  font-size: 1.2rem;
+  margin-top: auto;
 }
 
-
-
 @layer {
-    :root {
-        /* Brand Colors */
-        --color-brand-yellow: #FFB800;
-        --color-brand-olive: #4A5F32;
-        --color-brand-coffee: #5C3C2E;
+  :root {
+    /* Brand Colors */
+    --color-brand-yellow: #ffb800;
+    --color-brand-olive: #4a5f32;
+    --color-brand-coffee: #5c3c2e;
 
-        /* Background Colors */
-        --color-background-dark: #2C1810;
-        --color-background-primary: var(--color-brand-yellow);
-        --color-background-menu: var(--color-brand-coffee);
-        --color-background-accent: var(--color-brand-olive);
+    /* Background Colors */
+    --color-background-dark: #2c1810;
+    --color-background-primary: var(--color-brand-yellow);
+    --color-background-menu: var(--color-brand-coffee);
+    --color-background-accent: var(--color-brand-olive);
 
-        /* Text Colors */
-        --color-text-dark: var(--color-background-dark);
-        --color-text-light: #FFFFFF;
-        --color-text-accent: var(--color-brand-yellow);
+    /* Text Colors */
+    --color-text-dark: var(--color-background-dark);
+    --color-text-light: #ffffff;
+    --color-text-accent: var(--color-brand-yellow);
 
-        /* Component Colors */
-        --color-logo-icon: var(--color-text-dark);
-        --color-menu-highlight: var(--color-brand-yellow);
+    /* Component Colors */
+    --color-logo-icon: var(--color-text-dark);
+    --color-menu-highlight: var(--color-brand-yellow);
 
-        /* Layout */
-        --border-radius: 24px;
-        --spacing-base: 20px;
-        --spacing-large: 40px;
-    }
+    /* Layout */
+    --border-radius: 24px;
+    --spacing-base: 20px;
+    --spacing-large: 40px;
+  }
 }
