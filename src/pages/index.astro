@@ -29,12 +29,11 @@ import { cardContent } from "../data/card-content.js";
 </html>
 
 <style>
-  :root {
-    --content-width: 50rem;
-  }
+  /* hjemmelavet */
+  /* 
   main {
     padding-block: 4rem; /* Kun af æstetiske årsager */
-
+  /*
     display: grid;
     grid-template-columns:
       [full-start]
@@ -57,6 +56,23 @@ import { cardContent } from "../data/card-content.js";
     }
     section {
       grid-column: full;
+    } 
+  }
+*/
+  /* fra timen */
+  main {
+    padding-block: 4rem; /* Kun af æstetiske årsager */
+  }
+  section {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 50rem) 1fr;
+
+    > * {
+      grid-column: 2;
+    }
+
+    .full-width {
+      grid-column: 1/-1;
     }
   }
 </style>

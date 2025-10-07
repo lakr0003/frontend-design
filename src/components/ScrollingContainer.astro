@@ -14,7 +14,8 @@ const { cardContent } = Astro.props;
 </ul>
 
 <style>
-  ul {
+  /* hjemmelavet men virker */
+  /* ul {
     display: flex;
     gap: 2rem;
     overflow-x: auto;
@@ -38,6 +39,35 @@ const { cardContent } = Astro.props;
         font-weight: 700;
         font-size: 1.5625rem;
       }
+    }
+  } */
+
+  /*fra timen*/
+  ul {
+    list-style: none;
+
+    padding-block: 0;
+
+    --scroll-padding: max(1rem, 50% - var(--content-width) / 2);
+    --card-width: 400px;
+
+    display: flex;
+    gap: var(--card-gap);
+    align-items: start;
+
+    /* overflow-inline: auto; */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline: var(--scroll-padding); /* 1rem = minimum værdi - */
+    scroll-padding-inline: var(--scroll-padding); /* gør så padding tæller med i scroll */
+
+    li {
+      flex: 1 0 var(--card-width);
+      scroll-snap-align: start;
+      background: var(--card-background);
+      color: var(--card-text-color);
+      padding: var(--card-padding);
+      border-radius: var(--card-border-radius);
     }
   }
 </style>
